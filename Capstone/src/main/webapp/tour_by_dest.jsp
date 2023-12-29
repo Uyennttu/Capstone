@@ -6,9 +6,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
+String state = request.getParameter("state");
 TourDAO tourDAO = new TourDAO();
+pageContext.setAttribute("state", state);
+pageContext.setAttribute("toursByState", tourDAO.getToursByDestination(state));
 
-pageContext.setAttribute("popularTours", tourDAO.getPopularTours());
 %>
 
 <!DOCTYPE html>
@@ -115,22 +117,19 @@ h3 {
 				<div class="collapse navbar-collapse justify-content-between px-3"
 					id="navbarCollapse">
 					<div class="navbar-nav ml-auto py-0">
-						<a href="index.html" class="nav-item nav-link active">Home</a> <a
+						<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
 							href="about.html" class="nav-item nav-link">About</a> <a
 							href="service.html" class="nav-item nav-link">Services</a> <a
 							href="package.html" class="nav-item nav-link">Tour Packages</a>
 						<div class="nav-item dropdown">
 							<a href="#" class="nav-link dropdown-toggle"
-								data-toggle="dropdown">Destinations</a>
+								data-toggle="dropdown">Pages</a>
 							<div class="dropdown-menu border-0 rounded-0 m-0">
-								<a href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Queensland</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">New South Wales</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Victoria</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">South Australia</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Tasmania</a><a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Western Australia</a><a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Northern Territory</a><a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Australian Capital Territory</a>
+								<a href="blog.html" class="dropdown-item">Blog Grid</a> <a
+									href="single.html" class="dropdown-item">Blog Detail</a> <a
+									href="destination.html" class="dropdown-item">Destination</a> <a
+									href="guide.html" class="dropdown-item">Travel Guides</a> <a
+									href="testimonial.html" class="dropdown-item">Testimonial</a>
 							</div>
 						</div>
 						<a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -142,172 +141,18 @@ h3 {
 	<!-- Navbar End -->
 
 
-	<!-- Carousel Start -->
-	<div class="container-fluid p-0">
-		<div id="header-carousel" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="w-100" src="img/carousel-1.jpg" alt="Image">
-					<div
-						class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-						<div class="p-3" style="max-width: 900px;">
-							<h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-							<h1 class="display-3 text-white mb-md-4">Let's Discover The
-								World Together</h1>
-							<a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book
-								Now</a>
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="img/carousel-2.jpg" alt="Image">
-					<div
-						class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-						<div class="p-3" style="max-width: 900px;">
-							<h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-							<h1 class="display-3 text-white mb-md-4">Discover Amazing
-								Places With Us</h1>
-							<a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book
-								Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#header-carousel"
-				data-slide="prev">
-				<div class="btn btn-dark" style="width: 45px; height: 45px;">
-					<span class="carousel-control-prev-icon mb-n2"></span>
-				</div>
-			</a> <a class="carousel-control-next" href="#header-carousel"
-				data-slide="next">
-				<div class="btn btn-dark" style="width: 45px; height: 45px;">
-					<span class="carousel-control-next-icon mb-n2"></span>
-				</div>
-			</a>
-		</div>
-	</div>
-	<!-- Carousel End -->
-
-
-	<!-- Booking Start -->
-	<div class="container-fluid booking mt-5 pb-5">
-		<div class="container pb-5">
-			<div class="bg-light shadow" style="padding: 30px;">
-				<div class="row align-items-center" style="min-height: 60px;">
-					<div class="col-md-10">
-						<div class="row">
-							<div class="col-md-3">
-								<div class="mb-3 mb-md-0">
-									<select class="custom-select px-4" style="height: 47px;">
-										<option selected>Destination</option>
-										<option value="1">Destination 1</option>
-										<option value="2">Destination 1</option>
-										<option value="3">Destination 1</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="mb-3 mb-md-0">
-									<div class="date" id="date1" data-target-input="nearest">
-										<input type="text"
-											class="form-control p-4 datetimepicker-input"
-											placeholder="Depart Date" data-target="#date1"
-											data-toggle="datetimepicker" />
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="mb-3 mb-md-0">
-									<div class="date" id="date2" data-target-input="nearest">
-										<input type="text"
-											class="form-control p-4 datetimepicker-input"
-											placeholder="Return Date" data-target="#date2"
-											data-toggle="datetimepicker" />
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="mb-3 mb-md-0">
-									<select class="custom-select px-4" style="height: 47px;">
-										<option selected>Duration</option>
-										<option value="1">Duration 1</option>
-										<option value="2">Duration 1</option>
-										<option value="3">Duration 1</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<button class="btn btn-primary btn-block" type="submit"
-							style="height: 47px; margin-top: -2px;">Submit</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Booking End -->
-
-
-
-	<!-- Feature Start -->
-	<h3>Why book with Traveler?</h3>
-	<div class="container-fluid pb-5">
-		<div class="container pb-5">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="d-flex mb-4 mb-lg-0">
-						<div
-							class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
-							style="height: 100px; width: 100px;">
-							<i class="fa fa-2x fa-money-check-alt text-white"></i>
-						</div>
-						<div class="d-flex flex-column">
-							<h5 class="">Competitive Pricing</h5>
-							<p class="m-0">Best value experiences with a price guarantee.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="d-flex mb-4 mb-lg-0">
-						<div
-							class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
-							style="height: 100px; width: 100px;">
-							<i class="fa fa-2x fa-award text-white"></i>
-						</div>
-						<div class="d-flex flex-column">
-							<h5 class="">Best Services</h5>
-							<p class="m-0">24/7 of support via phone or live chat.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="d-flex mb-4 mb-lg-0">
-						<div
-							class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
-							style="height: 100px; width: 100px;">
-							<i class="fa fa-2x fa-globe text-white"></i>
-						</div>
-						<div class="d-flex flex-column">
-							<h5 class="">Trusted reviews</h5>
-							<p class="m-0">4.3 stars from 240,000+ Worldwide reviews.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Feature End -->
+	
+	
 
 	<!-- Packages Start -->
 	<div class="container-fluid py-5">
 		<div class="container pt-5 pb-3">
 			<div class="text-center mb-3 pb-3">
 
-				<h1>Popular Tours</h1>
+				<h1>Welcome to ${state}</h1>
 			</div>
 			<div class="row">
-				<c:forEach items="${popularTours}" var="tour">
+				<c:forEach items="${toursByState}" var="tour">
 					<div class="col-sm-6 col-md-4 col-lg-3">
 						<div class="package-item bg-white mb-2">
 
@@ -322,7 +167,7 @@ h3 {
 										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
 
 								</div>
-								<a class="h6 text-decoration-none" href="tour_details.jsp?tourId=${tour.id}">${tour.name}</a>
+								<a class="h6 text-decoration-none" href="">${tour.name}</a>
 								<div class="border-top mt-4 pt-4">
 									<div class="d-flex justify-content-between">
 										<h6 class="m-0">

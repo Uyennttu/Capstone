@@ -6,9 +6,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-TourDAO tourDAO = new TourDAO();
+String tourIdString = request.getParameter("tourId");
+int tourId = Integer.parseInt(tourIdString);
 
-pageContext.setAttribute("popularTours", tourDAO.getPopularTours());
+TourDAO tourDAO = new TourDAO();
+pageContext.setAttribute("tourId", tourId);
+pageContext.setAttribute("tour", tourDAO.getTourById(tourId));
 %>
 
 <!DOCTYPE html>
@@ -162,7 +165,7 @@ h3 {
 							<div class="p-4">
 								<div class="d-flex justify-content-between mb-3">
 									<small class="m-0"><i
-										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.destination}</small>
+										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
 
 								</div>
 								<a class="h6 text-decoration-none" href="">${tour.name}</a>
