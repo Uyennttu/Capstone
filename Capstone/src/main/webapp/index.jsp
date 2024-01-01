@@ -1,3 +1,4 @@
+<%@page import="DAO.DestinationDAO"%>
 <%@page import="DAO.TourDAO"%>
 <%@page import="entity.Tour"%>
 <%@page import="java.util.ArrayList"%>
@@ -6,9 +7,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
+String destinationIdString = request.getParameter("destinationId");
 TourDAO tourDAO = new TourDAO();
+DestinationDAO destination = new DestinationDAO();
 
-pageContext.setAttribute("popularTours", tourDAO.getPopularTours());
+
+if (destinationIdString != null) {
+	int destinationId = Integer.parseInt(destinationIdString);
+	pageContext.setAttribute("toursByState", tourDAO.getToursByDestination(destinationId));
+
+} else {
+	pageContext.setAttribute("popularTours", tourDAO.getPopularTours());
+}
+
+pageContext.setAttribute("destinations", destination.getAllStates());
 %>
 
 <!DOCTYPE html>
@@ -123,14 +135,10 @@ h3 {
 							<a href="#" class="nav-link dropdown-toggle"
 								data-toggle="dropdown">Destinations</a>
 							<div class="dropdown-menu border-0 rounded-0 m-0">
-								<a href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Queensland</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">New South Wales</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Victoria</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">South Australia</a> <a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Tasmania</a><a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Western Australia</a><a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Northern Territory</a><a
-									href="tour_by_dest.jsp?dest=${tour.state}" class="dropdown-item">Australian Capital Territory</a>
+								<c:forEach items="${destinations}" var="destination">
+									<a href="tour_by_dest.jsp?destinationId=${destination.id}"
+										class="dropdown-item">${destination.state}</a>
+								</c:forEach>
 							</div>
 						</div>
 						<a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -322,7 +330,8 @@ h3 {
 										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
 
 								</div>
-								<a class="h6 text-decoration-none" href="tour_details.jsp?tourId=${tour.id}">${tour.name}</a>
+								<a class="h6 text-decoration-none"
+									href="tour_details.jsp?tourId=${tour.id}">${tour.name}</a>
 								<div class="border-top mt-4 pt-4">
 									<div class="d-flex justify-content-between">
 										<h6 class="m-0">

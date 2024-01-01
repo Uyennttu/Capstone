@@ -64,12 +64,13 @@ public class TourDAO {
 
 	}
 
-	public List<Tour> getToursByDestination(String state) throws SQLException {
+	public List<Tour> getToursByDestination(int destinationId) throws SQLException {
 		Connection connection = DBConnection.makeConnection();
 		Statement stmt = connection.createStatement();
-		String sqlQuery = "SELECT * FROM tour WHERE state = ?";
+		String sqlQuery = "SELECT t.id, t.name, t.city, t.img_name, t.rating, t.num_of_rate, t.price, t.best_seller "
+				+ "FROM destination d JOIN tour t ON d.id = t.destination_id WHERE d.id = ? ";
 		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
-		preStmt.setString(1, state);
+		preStmt.setInt(1, destinationId);
 		ResultSet resultSet = preStmt.executeQuery();
 
 		List<Tour> list = new ArrayList<Tour>();

@@ -1,3 +1,5 @@
+<%@page import="DAO.DestinationDAO"%>
+<%@page import="entity.Destination"%>
 <%@page import="DAO.TourDAO"%>
 <%@page import="entity.Tour"%>
 <%@page import="java.util.ArrayList"%>
@@ -6,11 +8,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-String state = request.getParameter("state");
 TourDAO tourDAO = new TourDAO();
-pageContext.setAttribute("state", state);
-pageContext.setAttribute("toursByState", tourDAO.getToursByDestination(state));
+DestinationDAO destination = new DestinationDAO();
+String destinationIdString = request.getParameter("destinationId");
 
+if (destinationIdString != null) {
+	int destinationId = Integer.parseInt(destinationIdString);
+	pageContext.setAttribute("toursByState", tourDAO.getToursByDestination(destinationId));
+
+} else {
+	pageContext.setAttribute("popularTours", tourDAO.getPopularTours());
+}
+
+pageContext.setAttribute("destinations", destination.getAllStates());
 %>
 
 <!DOCTYPE html>
@@ -122,14 +132,13 @@ h3 {
 							href="service.html" class="nav-item nav-link">Services</a> <a
 							href="package.html" class="nav-item nav-link">Tour Packages</a>
 						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle"
-								data-toggle="dropdown">Pages</a>
+							<a href="" class="nav-link dropdown-toggle"
+								data-toggle="dropdown">Destinations</a>
 							<div class="dropdown-menu border-0 rounded-0 m-0">
-								<a href="blog.html" class="dropdown-item">Blog Grid</a> <a
-									href="single.html" class="dropdown-item">Blog Detail</a> <a
-									href="destination.html" class="dropdown-item">Destination</a> <a
-									href="guide.html" class="dropdown-item">Travel Guides</a> <a
-									href="testimonial.html" class="dropdown-item">Testimonial</a>
+								<c:forEach items="${destinations}" var="destination">
+									<a href="tour_by_dest.jsp?destinationId=${destination.id}"
+										class="dropdown-item">${destination.state}</a>
+								</c:forEach>
 							</div>
 						</div>
 						<a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -140,20 +149,17 @@ h3 {
 	</div>
 	<!-- Navbar End -->
 
-
-	
-	
-
 	<!-- Packages Start -->
 	<div class="container-fluid py-5">
 		<div class="container pt-5 pb-3">
 			<div class="text-center mb-3 pb-3">
 
-				<h1>Welcome to ${state}</h1>
+				<h1>Tours</h1>
 			</div>
 			<div class="row">
-				<c:forEach items="${toursByState}" var="tour">
-					<div class="col-sm-6 col-md-4 col-lg-3">
+				<c:if test="${not empty toursByState}">
+					<c:forEach items="${toursByState}" var="tour">
+						<div class="col-sm-6 col-md-4 col-lg-3">
 						<div class="package-item bg-white mb-2">
 
 							<div
@@ -167,7 +173,8 @@ h3 {
 										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
 
 								</div>
-								<a class="h6 text-decoration-none" href="">${tour.name}</a>
+								<a class="h6 text-decoration-none"
+									href="tour_details.jsp?tourId=${tour.id}">${tour.name}</a>
 								<div class="border-top mt-4 pt-4">
 									<div class="d-flex justify-content-between">
 										<h6 class="m-0">
@@ -183,10 +190,9 @@ h3 {
 						</div>
 					</div>
 				</c:forEach>
+				</c:if>
 
 				<!-- Packages End -->
-
-
 
 
 				<!-- Destination Start -->
