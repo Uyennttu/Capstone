@@ -118,21 +118,21 @@ h3 {
 					id="navbarCollapse">
 					<div class="navbar-nav ml-auto py-0">
 						<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
-							href="about.html" class="nav-item nav-link">About</a> <a
-							href="service.html" class="nav-item nav-link">Services</a> <a
-							href="package.html" class="nav-item nav-link">Tour Packages</a>
+							href="about.jsp" class="nav-item nav-link">About</a> <a
+							href="service.jsp" class="nav-item nav-link">Services</a> <a
+							href="package.jsp" class="nav-item nav-link">Tour Packages</a>
 						<div class="nav-item dropdown">
 							<a href="#" class="nav-link dropdown-toggle"
 								data-toggle="dropdown">Pages</a>
 							<div class="dropdown-menu border-0 rounded-0 m-0">
-								<a href="blog.html" class="dropdown-item">Blog Grid</a> <a
-									href="single.html" class="dropdown-item">Blog Detail</a> <a
-									href="destination.html" class="dropdown-item">Destination</a> <a
-									href="guide.html" class="dropdown-item">Travel Guides</a> <a
-									href="testimonial.html" class="dropdown-item">Testimonial</a>
+								<a href="blog.jsp" class="dropdown-item">Blog Grid</a> <a
+									href="single.jsp" class="dropdown-item">Blog Detail</a> <a
+									href="destination.jsp" class="dropdown-item">Destination</a> <a
+									href="guide.jsp" class="dropdown-item">Travel Guides</a> <a
+									href="testimonial.jsp" class="dropdown-item">Testimonial</a>
 							</div>
 						</div>
-						<a href="contact.html" class="nav-item nav-link">Contact</a>
+						<a href="contact.jsp" class="nav-item nav-link">Contact</a>
 					</div>
 				</div>
 			</nav>

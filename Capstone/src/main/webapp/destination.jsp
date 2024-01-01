@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,14 +80,14 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link active">Services</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="package.html" class="nav-item nav-link">Tour Packages</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="blog.html" class="dropdown-item">Blog Grid</a>
                                 <a href="single.html" class="dropdown-item">Blog Detail</a>
-                                <a href="destination.html" class="dropdown-item">Destination</a>
+                                <a href="destination.html" class="dropdown-item active">Destination</a>
                                 <a href="guide.html" class="dropdown-item">Travel Guides</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             </div>
@@ -102,11 +105,11 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Services</h3>
+                <h3 class="display-4 text-white text-uppercase">Destination</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Services</p>
+                    <p class="m-0 text-uppercase">Destination</p>
                 </div>
             </div>
         </div>
@@ -165,112 +168,74 @@
         </div>
     </div>
     <!-- Booking End -->
+    
 
-
-    <!-- Service Start -->
+    <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
-                <h1>Tours & Travel Services</h1>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
+                <h1>Explore Top Destination</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-route mx-auto mb-4"></i>
-                        <h5 class="mb-2">Travel Guide</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-1.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">United States</h5>
+                            <span>100 Cities</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
-                        <h5 class="mb-2">Ticket Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-2.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">United Kingdom</h5>
+                            <span>100 Cities</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-                        <h5 class="mb-2">Hotel Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-3.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Australia</h5>
+                            <span>100 Cities</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-route mx-auto mb-4"></i>
-                        <h5 class="mb-2">Travel Guide</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-4.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">India</h5>
+                            <span>100 Cities</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
-                        <h5 class="mb-2">Ticket Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-5.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">South Africa</h5>
+                            <span>100 Cities</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-                        <h5 class="mb-2">Hotel Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Indonesia</h5>
+                            <span>100 Cities</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
-                <h1>What Say Our Clients</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel">
-                <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
+    <!-- Destination Start -->
 
 
     <!-- Footer Start -->
