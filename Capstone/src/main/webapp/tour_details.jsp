@@ -1,3 +1,5 @@
+<%@page import="DAO.DestinationDAO"%>
+<%@page import="entity.Destination"%>
 <%@page import="DAO.TourDAO"%>
 <%@page import="entity.Tour"%>
 <%@page import="java.util.ArrayList"%>
@@ -8,10 +10,21 @@
 <%
 String tourIdString = request.getParameter("tourId");
 int tourId = Integer.parseInt(tourIdString);
-
 TourDAO tourDAO = new TourDAO();
-pageContext.setAttribute("tourId", tourId);
 pageContext.setAttribute("tour", tourDAO.getTourById(tourId));
+
+DestinationDAO destination = new DestinationDAO();
+String destinationIdString = request.getParameter("destinationId");
+
+if (destinationIdString != null) {
+	int destinationId = Integer.parseInt(destinationIdString);
+	pageContext.setAttribute("toursByState", tourDAO.getToursByDestination(destinationId));
+
+} else {
+	pageContext.setAttribute("popularTours", tourDAO.getPopularTours());
+}
+
+pageContext.setAttribute("destinations", destination.getAllStates());
 %>
 
 <!DOCTYPE html>
@@ -119,21 +132,20 @@ h3 {
 					id="navbarCollapse">
 					<div class="navbar-nav ml-auto py-0">
 						<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
-							href="about.jsp" class="nav-item nav-link">About</a> <a
-							href="service.jsp" class="nav-item nav-link">Services</a> <a
-							href="package.jsp" class="nav-item nav-link">Tour Packages</a>
+							href="about.html" class="nav-item nav-link">About</a> <a
+							href="service.html" class="nav-item nav-link">Services</a> <a
+							href="package.html" class="nav-item nav-link">Tour Packages</a>
 						<div class="nav-item dropdown">
 							<a href="#" class="nav-link dropdown-toggle"
-								data-toggle="dropdown">Pages</a>
+								data-toggle="dropdown">Destinations</a>
 							<div class="dropdown-menu border-0 rounded-0 m-0">
-								<a href="blog.jsp" class="dropdown-item">Blog Grid</a> <a
-									href="single.jsp" class="dropdown-item">Blog Detail</a> <a
-									href="destination.jsp" class="dropdown-item">Destination</a> <a
-									href="guide.jsp" class="dropdown-item">Travel Guides</a> <a
-									href="testimonial.jsp" class="dropdown-item">Testimonial</a>
+								<c:forEach items="${destinations}" var="destination">
+									<a href="tour_by_dest.jsp?destinationId=${destination.id}"
+										class="dropdown-item">${destination.state}</a>
+								</c:forEach>
 							</div>
 						</div>
-						<a href="contact.jsp" class="nav-item nav-link">Contact</a>
+						<a href="contact.html" class="nav-item nav-link">Contact</a>
 					</div>
 				</div>
 			</nav>
@@ -142,8 +154,8 @@ h3 {
 	<!-- Navbar End -->
 
 
-	
-	
+
+
 
 	<!-- Packages Start -->
 	<div class="container-fluid py-5">
@@ -153,37 +165,36 @@ h3 {
 				<h1>${tour.name}</h1>
 			</div>
 			<div class="row">
-				
-					<div class="col-sm-6 col-md-4 col-lg-3">
-						<div class="package-item bg-white mb-2">
 
-							<div
-								class="new position-absolute top-0 start-0 translate-middle bg-primary text-white px-2 py-1">
-								<span>Best Seller</span>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<div class="package-item bg-white mb-2">
+
+						<div
+							class="new position-absolute top-0 start-0 translate-middle bg-primary text-white px-2 py-1">
+							<span>Best Seller</span>
+						</div>
+						<img class="img-fluid" src="img/${tour.imgName}" alt="">
+						<div class="p-4">
+							<div class="d-flex justify-content-between mb-3">
+								<small class="m-0"><i
+									class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
+
 							</div>
-							<img class="img-fluid" src="img/${tour.imgName}" alt="">
-							<div class="p-4">
-								<div class="d-flex justify-content-between mb-3">
-									<small class="m-0"><i
-										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
-
-								</div>
-								<a class="h6 text-decoration-none" href="">${tour.name}</a>
-								<div class="border-top mt-4 pt-4">
-									<div class="d-flex justify-content-between">
-										<h6 class="m-0">
-											<i class="fa fa-star text-primary mr-2"></i>${tour.rating} <small>(${tour.numOfRate})</small>
-										</h6>
-										<h5 class="m-0">
-											<span class="small-text">from</span> <span
-												class="normal-text">$${tour.price}</span>
-										</h5>
-									</div>
+							<a class="h6 text-decoration-none" href="">${tour.name}</a>
+							<div class="border-top mt-4 pt-4">
+								<div class="d-flex justify-content-between">
+									<h6 class="m-0">
+										<i class="fa fa-star text-primary mr-2"></i>${tour.rating} <small>(${tour.numOfRate})</small>
+									</h6>
+									<h5 class="m-0">
+										<span class="small-text">from</span> <span class="normal-text">$${tour.price}</span>
+									</h5>
 								</div>
 							</div>
 						</div>
 					</div>
-				
+				</div>
+
 
 				<!-- Packages End -->
 
