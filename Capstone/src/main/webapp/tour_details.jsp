@@ -140,7 +140,7 @@ h3 {
 								data-toggle="dropdown">Destinations</a>
 							<div class="dropdown-menu border-0 rounded-0 m-0">
 								<c:forEach items="${destinations}" var="destination">
-									<a href="tour_by_dest.jsp?destinationId=${destination.id}"
+									<a href="index.jsp?destinationId=${destination.id}"
 										class="dropdown-item">${destination.state}</a>
 								</c:forEach>
 							</div>

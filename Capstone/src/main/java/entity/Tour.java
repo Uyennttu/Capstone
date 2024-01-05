@@ -8,7 +8,7 @@ public class Tour {
 	private double rating;
 	private int numOfRate;
 	private double price;
-	private boolean likelySellOut;
+	private boolean bestSeller;
 	private String state;
 	
 	
@@ -16,10 +16,9 @@ public class Tour {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
 	public Tour(int id, String name, String city, String imgName, double rating, int numOfRate, double price,
-			boolean likelySellOut) {
+			boolean bestSeller) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -28,13 +27,12 @@ public class Tour {
 		this.rating = rating;
 		this.numOfRate = numOfRate;
 		this.price = price;
-		this.likelySellOut = likelySellOut;
+		this.bestSeller = bestSeller;
 	}
 
 
-
 	public Tour(int id, String name, String city, String imgName, double rating, int numOfRate, double price,
-			boolean likelySellOut, String state) {
+			boolean bestSeller, String state) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,10 +41,9 @@ public class Tour {
 		this.rating = rating;
 		this.numOfRate = numOfRate;
 		this.price = price;
-		this.likelySellOut = likelySellOut;
+		this.bestSeller = bestSeller;
 		this.state = state;
 	}
-
 
 
 	public int getId() {
@@ -54,11 +51,9 @@ public class Tour {
 	}
 
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 
 	public String getName() {
@@ -66,11 +61,9 @@ public class Tour {
 	}
 
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 
 	public String getCity() {
@@ -78,11 +71,9 @@ public class Tour {
 	}
 
 
-
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 
 
 	public String getImgName() {
@@ -90,11 +81,9 @@ public class Tour {
 	}
 
 
-
 	public void setImgName(String imgName) {
 		this.imgName = imgName;
 	}
-
 
 
 	public double getRating() {
@@ -102,11 +91,9 @@ public class Tour {
 	}
 
 
-
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
-
 
 
 	public int getNumOfRate() {
@@ -114,11 +101,9 @@ public class Tour {
 	}
 
 
-
 	public void setNumOfRate(int numOfRate) {
 		this.numOfRate = numOfRate;
 	}
-
 
 
 	public double getPrice() {
@@ -126,23 +111,19 @@ public class Tour {
 	}
 
 
-
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
 
-
-	public boolean isLikelySellOut() {
-		return likelySellOut;
+	public boolean isBestSeller() {
+		return bestSeller;
 	}
 
 
-
-	public void setLikelySellOut(boolean likelySellOut) {
-		this.likelySellOut = likelySellOut;
+	public void setBestSeller(boolean bestSeller) {
+		this.bestSeller = bestSeller;
 	}
-
 
 
 	public String getState() {
@@ -150,11 +131,10 @@ public class Tour {
 	}
 
 
-
 	public void setState(String state) {
 		this.state = state;
 	}
 
-
+	
 
 }

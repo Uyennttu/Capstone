@@ -40,7 +40,6 @@ public class TourDAO {
 
 	public static Tour getTourById(int tourId) throws SQLException {
 		Connection connection = DBConnection.makeConnection();
-		Statement stmt = connection.createStatement();
 		String sqlQuery = "SELECT * FROM tour WHERE id = ?";
 		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
 		preStmt.setInt(1, tourId);
@@ -66,9 +65,7 @@ public class TourDAO {
 
 	public List<Tour> getToursByDestination(int destinationId) throws SQLException {
 		Connection connection = DBConnection.makeConnection();
-		Statement stmt = connection.createStatement();
-		String sqlQuery = "SELECT t.id, t.name, t.city, t.img_name, t.rating, t.num_of_rate, t.price, t.best_seller "
-				+ "FROM destination d JOIN tour t ON d.id = t.destination_id WHERE d.id = ? ";
+		String sqlQuery = "SELECT * FROM tour WHERE destination_id = ? ";
 		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
 		preStmt.setInt(1, destinationId);
 		ResultSet resultSet = preStmt.executeQuery();
@@ -91,5 +88,57 @@ public class TourDAO {
 		}
 		return list;
 	}
+
+	public List<Tour> getToursBySearch(String searchValue) throws SQLException {
+		Connection connection = DBConnection.makeConnection();
+		String sqlQuery = "SELECT * FROM tour WHERE name LIKE ?";
+		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
+		preStmt.setString(1, "%" + searchValue + "%");
+		ResultSet resultSet = preStmt.executeQuery();
+
+		List<Tour> list = new ArrayList<Tour>();
+
+		while (resultSet.next()) {
+			int id = resultSet.getInt("id");
+			String name = resultSet.getString("name");
+			String city = resultSet.getString("city");
+			String imgName = resultSet.getString("img_name");
+			double rating = resultSet.getDouble("rating");
+			int numOfRate = resultSet.getInt("num_of_rate");
+			double price = resultSet.getDouble("price");
+			boolean bestSeller = resultSet.getBoolean("best_seller");
+
+			Tour tour = new Tour(id, name, city, imgName, rating, numOfRate, price, bestSeller);
+			list.add(tour);
+
+		}
+		return list;
+	}
+	
+	public List<Tour> getAllTours() throws SQLException {
+		Connection connection = DBConnection.makeConnection();
+		Statement stmt = connection.createStatement();
+		String sqlQuery = "SELECT * FROM tour";
+		ResultSet resultSet = stmt.executeQuery(sqlQuery);
+
+		List<Tour> list = new ArrayList<Tour>();
+
+		while (resultSet.next()) {
+			int id = resultSet.getInt("id");
+			String name = resultSet.getString("name");
+			String city = resultSet.getString("city");
+			String imgName = resultSet.getString("img_name");
+			double rating = resultSet.getDouble("rating");
+			int numOfRate = resultSet.getInt("num_of_rate");
+			double price = resultSet.getDouble("price");
+			boolean bestSeller = resultSet.getBoolean("best_seller");
+
+			Tour tour = new Tour(id, name, city, imgName, rating, numOfRate, price, bestSeller);
+			list.add(tour);
+
+		}
+		return list;
+	}
+
 
 }
