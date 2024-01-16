@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -63,11 +63,11 @@ public class TourDAO {
 
 	}
 
-	public List<Tour> getToursByDestination(int destinationId) throws SQLException {
+	public List<Tour> getToursByDestination(String destinationId) throws SQLException {
 		Connection connection = DBConnection.makeConnection();
 		String sqlQuery = "SELECT * FROM tour WHERE destination_id = ? ";
 		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
-		preStmt.setInt(1, destinationId);
+		preStmt.setInt(1, Integer.parseInt(destinationId));
 		ResultSet resultSet = preStmt.executeQuery();
 
 		List<Tour> list = new ArrayList<Tour>();

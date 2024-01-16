@@ -4,7 +4,7 @@ public class Customer {
 	int id;
 	String firstName;
 	String lastName;
-	String userName;
+	String username;
 	String password;
 	String feedback;
 	String imgName;
@@ -19,6 +19,14 @@ public class Customer {
 		this.firstName = firstName;
 		this.feedback = feedback;
 		this.imgName = imgName;
+	}
+	
+
+	public Customer(int id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -45,12 +53,12 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {

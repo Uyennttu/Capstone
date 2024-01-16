@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Customer;
-import entity.Tour;
-import entity.TourGuide;
 import sql.connection.DBConnection;
 
 public class CustomerDAO {
@@ -21,7 +19,7 @@ public class CustomerDAO {
 		String sqlQuery = "select c.first_name, feedbacks, img_name\n" + "from testimonial t\n"
 				+ "join customer c on t.customer_id = c.id;";
 		ResultSet resultSet = stmt.executeQuery(sqlQuery);
-		
+
 		List<Customer> list = new ArrayList<Customer>();
 
 		while (resultSet.next()) {
@@ -33,6 +31,22 @@ public class CustomerDAO {
 			list.add(customer);
 		}
 		return list;
+
+	}
+
+	public static Customer getCustomerByCredentials(String username, String password) throws SQLException {
+		Connection connection = DBConnection.makeConnection();
+		String sqlQuery = "SELECT * FROM customer WHERE username = ? AND password = ?";
+		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
+		preStmt.setString(1, username);
+		preStmt.setString(2, password);
+		ResultSet resultSet = preStmt.executeQuery();
+
+		if (resultSet.next()) {
+			int id = resultSet.getInt("id");
+			return new Customer(id, username, password);
+		}
+		return null;
 
 	}
 }
