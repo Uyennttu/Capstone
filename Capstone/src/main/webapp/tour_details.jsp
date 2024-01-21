@@ -1,6 +1,6 @@
-<%@page import="DAO.DestinationDAO"%>
+<%@page import="dao.DestinationDAO"%>
 <%@page import="entity.Destination"%>
-<%@page import="DAO.TourDAO"%>
+<%@page import="dao.TourDAO"%>
 <%@page import="entity.Tour"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -14,10 +14,10 @@ TourDAO tourDAO = new TourDAO();
 pageContext.setAttribute("tour", tourDAO.getTourById(tourId));
 
 DestinationDAO destination = new DestinationDAO();
-String destinationIdString = request.getParameter("destinationId");
+String destinationId = request.getParameter("destinationId");
 
-if (destinationIdString != null) {
-	int destinationId = Integer.parseInt(destinationIdString);
+if (destinationId!= null) {
+	
 	pageContext.setAttribute("toursByState", tourDAO.getToursByDestination(destinationId));
 
 } else {
