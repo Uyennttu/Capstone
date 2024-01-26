@@ -38,11 +38,11 @@ public class TourDAO {
 
 	}
 
-	public static Tour getTourById(int tourId) throws SQLException {
+	public static Tour getTourById(String tourId) throws SQLException {
 		Connection connection = DBConnection.makeConnection();
 		String sqlQuery = "SELECT * FROM tour WHERE id = ?";
 		PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
-		preStmt.setInt(1, tourId);
+		preStmt.setInt(1, Integer.parseInt(tourId));
 		ResultSet resultSet = preStmt.executeQuery();
 
 		while (resultSet.next()) {
