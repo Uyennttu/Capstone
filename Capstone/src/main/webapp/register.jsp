@@ -110,7 +110,7 @@ h3 {
 	<!-- login session -->
 	<div class="container">
 		<div class="heading_container heading_center">
-			<h3>Log in and get exploring</h3>
+			<h3>Register Your Account</h3>
 
 			<c:if test="${not empty errorMessage}">
 				<div style="text-align: center;">
@@ -119,21 +119,40 @@ h3 {
 			</c:if>
 
 			<div class="row justify-content-center">
+				<div>
+					<form action="Register" method="post" class="registerForm">
+						<div class="form-group">
+							<label for="userFirstName">First Name:</label> <input type="text"
+								name="userFirstName" class="form-control" required>
+						</div>
 
-				<div class="col-md-10 col-lg-3 px-1">
+						<div class="form-group">
+							<label for="userLastName">Last Name:</label> <input type="text"
+								name="userLastName" class="form-control" required>
+						</div>
 
-					<form action="Authentication">
-						<input type="text" name="action" hidden value="LOG_IN"> <label
-							for="username">Username:</label><br> <input type="text"
-							id="username" name="username" placeholder="Enter your username"><br>
-						<br> <label for="pwd">Password:</label><br> <input
-							type="password" id="pwd" name="password"
-							placeholder="Enter your password"><br> <br> <input
-							type="submit" value="Submit">
+						<div class="form-group">
+							<label for="userEmail">Email:</label> <input type="email"
+								name="userEmail" class="form-control" required>
+						</div>
 
+						<div class="form-group">
+							<label for="userName">Username:</label> <input type="text"
+								name="userName" class="form-control" required>
+						</div>
+
+						<div class="form-group">
+							<label for="userPass">Password:</label> <input type="password"
+								name="userPass" class="form-control" required>
+						</div>
+
+						<div class="form-group">
+							<button class="registerBtn" type="submit">
+								<i class="fa fa-user" aria-hidden="true"></i> Register Now
+							</button>
+						</div>
 					</form>
-					<br>
-					<span>Register Your Account <a href="register.jsp">here</a></span>
+					<span>Already had an account? Log in <a href="login.jsp">here</a></span>
 				</div>
 			</div>
 		</div>
