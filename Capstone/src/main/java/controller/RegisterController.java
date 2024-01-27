@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.CustomerDAO;
-import dao.UserDAO;
 import entity.Customer;
 
 /**
@@ -32,7 +31,6 @@ public class RegisterController extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -43,9 +41,9 @@ public class RegisterController extends HttpServlet {
 			String email = request.getParameter("userEmail");
 
 			customer = CustomerDAO.registerNewUser(firstName, lastName, email, userName, userPass, request);
-			
+
 			if (customer != null) {
-			    response.sendRedirect("Home");
+				response.sendRedirect("Home");
 			} else {
 				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 				rd.forward(request, response);
