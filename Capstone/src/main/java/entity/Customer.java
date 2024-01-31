@@ -8,6 +8,7 @@ public class Customer {
 	String password;
 	String feedback;
 	String imgName;
+	String email;
 
 	public Customer() {
 		super();
@@ -20,13 +21,21 @@ public class Customer {
 		this.feedback = feedback;
 		this.imgName = imgName;
 	}
-	
 
 	public Customer(int id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+	}
+
+	public Customer(String firstName, String lastName, String username, String password, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.email = email;
 	}
 
 	public int getId() {
