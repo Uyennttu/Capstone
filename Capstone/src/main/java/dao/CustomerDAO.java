@@ -11,7 +11,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import entity.Customer;
-import entity.User;
 import sql.connection.DBConnection;
 
 public class CustomerDAO {
@@ -85,12 +84,11 @@ public class CustomerDAO {
 			int rowsAffected = addUserStmt.executeUpdate();
 
 			if (rowsAffected > 0) {
-				request.setAttribute("welcomeMessage",
-						"Welcome " + firstName + "! Account Registered Successfully!");
+				return new Customer(firstName, lastName, email, username, userPassword);
 			} else {
 				request.setAttribute("errorMessage", "Failed to register the account.");
+				return null;
 			}
-
 		}
 		return null;
 	}

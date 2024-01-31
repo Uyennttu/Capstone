@@ -96,7 +96,7 @@ h3 {
 			style="z-index: 9;">
 			<nav
 				class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-1 py-lg-0 pl-1 pl-lg-5">
-				<a href="" class="navbar-brand">
+				<a href="Home" class="navbar-brand">
 					<h1 class="m-0 text-primary">
 						<span class="text-dark">TRAVEL</span>ER
 					</h1>

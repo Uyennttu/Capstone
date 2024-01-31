@@ -43,7 +43,9 @@ public class RegisterController extends HttpServlet {
 			customer = CustomerDAO.registerNewUser(firstName, lastName, email, userName, userPass, request);
 
 			if (customer != null) {
-				response.sendRedirect("Home");
+			    request.setAttribute("registrationSuccess", true);
+			    RequestDispatcher rd = request.getRequestDispatcher("registration-success.jsp");
+			    rd.forward(request, response);
 			} else {
 				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 				rd.forward(request, response);

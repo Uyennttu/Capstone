@@ -71,55 +71,16 @@ h3 {
 	<br>
 	<br>
 
-	<!-- login session -->
+	<!-- register success session -->
 	<div class="container">
 		<div class="heading_container heading_center">
-			<h3>Register Your Account</h3>
-
-			<c:if test="${not empty errorMessage}">
-				<div style="text-align: center;">
-					<p style="color: red;">${errorMessage}</p>
-				</div>
-			</c:if>
-
-			<div class="row justify-content-center">
-				<div>
-					<form action="Register" method="post" class="registerForm">
-						<div class="form-group">
-							<label for="userFirstName">First Name:</label> <input type="text"
-								name="userFirstName" class="form-control" required>
-						</div>
-
-						<div class="form-group">
-							<label for="userLastName">Last Name:</label> <input type="text"
-								name="userLastName" class="form-control" required>
-						</div>
-
-						<div class="form-group">
-							<label for="userEmail">Email:</label> <input type="email"
-								name="userEmail" class="form-control" required>
-						</div>
-
-						<div class="form-group">
-							<label for="userName">Username:</label> <input type="text"
-								name="userName" class="form-control" required>
-						</div>
-
-						<div class="form-group">
-							<label for="userPass">Password:</label> <input type="password"
-								name="userPass" class="form-control" required>
-						</div>
-
-						<div class="form-group">
-							<button class="registerBtn" type="submit">
-								<i class="fa fa-user" aria-hidden="true"></i> Register Now
-							</button>
-						</div>
-					</form>
-					<span>Already had an account? Log in <a href="login.jsp">here</a></span>
-				</div>
-			</div>
+			<h2>Registration Successful!</h2>
+			<p>Your account has been successfully created. You can now log in
+				using your username and passwords.</p>
+			<p>
+				<a href="login.jsp">Go to Login Page</a>
+			</p>
 		</div>
 	</div>
-	<!-- end login session -->
+	<!-- end register success session -->
 </html>

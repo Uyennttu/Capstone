@@ -115,6 +115,7 @@ h3 {
 										<input class="custom-select px-1" style="height: 47px;"
 											type="text" name="searchValue"
 											placeholder="Search for a place or activity">
+									</form>
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -137,7 +138,7 @@ h3 {
 			</div>
 		</div>
 	</div>
-	</form>
+
 	<!-- Booking End -->
 
 
@@ -214,8 +215,7 @@ h3 {
 									<small class="m-0"><i
 										class="fa fa-map-marker-alt text-primary mr-2"></i>${tour.city}</small>
 								</div>
-								<a class="h6 text-decoration-none"
-									href="Tour?tourId=${tour.id}">${tour.name}</a>
+								<a class="h6 text-decoration-none" href="Tour?tourId=${tour.id}">${tour.name}</a>
 								<div class="border-top mt-4 pt-4">
 									<div class="d-flex justify-content-between">
 										<h6 class="m-0">
@@ -317,7 +317,6 @@ h3 {
 	</div>
 	<!-- Destination Start -->
 
-
 	<!-- Service Start -->
 	<div class="container-fluid py-5">
 		<div class="container pt-5 pb-3">
@@ -354,173 +353,6 @@ h3 {
 		</div>
 	</div>
 	<!-- Service End -->
-
-
-
-	<!-- Registration Start -->
-	<div class="container-fluid bg-registration py-5"
-		style="margin: 90px 0;">
-		<div class="container py-5">
-			<div class="row align-items-center">
-				<div class="col-lg-7 mb-5 mb-lg-0">
-					<div class="mb-4">
-						<h6 class="text-primary text-uppercase"
-							style="letter-spacing: 5px;">Mega Offer</h6>
-						<h1 class="text-white">
-							<span class="text-primary">30% OFF</span> For Honeymoon
-						</h1>
-					</div>
-					<p class="text-white">Invidunt lorem justo sanctus clita. Erat
-						lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et
-						dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut
-						sed diam sea ipsum est dolor</p>
-					<ul class="list-inline text-white m-0">
-						<li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore
-							eos amet dolor amet diam</li>
-						<li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea
-							et sit dolor amet ipsum</li>
-						<li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam
-							dolor diam elitripsum vero.</li>
-					</ul>
-				</div>
-				<div class="col-lg-5">
-					<div class="card border-0">
-						<div class="card-header bg-primary text-center p-4">
-							<h1 class="text-white m-0">Sign Up Now</h1>
-						</div>
-						<div class="card-body rounded-bottom bg-white p-5">
-							<form>
-								<div class="form-group">
-									<input type="text" class="form-control p-4"
-										placeholder="Your name" required="required" />
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control p-4"
-										placeholder="Your email" required="required" />
-								</div>
-								<div class="form-group">
-									<select class="custom-select px-4" style="height: 47px;">
-										<option selected>Select a destination</option>
-										<option value="1">destination 1</option>
-										<option value="2">destination 1</option>
-										<option value="3">destination 1</option>
-									</select>
-								</div>
-								<div>
-									<button class="btn btn-primary btn-block py-3" type="submit">Sign
-										Up Now</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Registration End -->
-
-
-	<!-- Service Start -->
-	<div class="container-fluid py-5">
-		<div class="container pt-5 pb-3">
-			<div class="text-center mb-3 pb-3">
-				<h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
-				<h1>Tours & Travel Services</h1>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="service-item bg-white text-center mb-2 py-5 px-4">
-						<i class="fa fa-2x fa-route mx-auto mb-4"></i>
-						<h5 class="mb-2">Travel Guide</h5>
-						<p class="m-0">Justo sit justo eos amet tempor amet clita amet
-							ipsum eos elitr. Amet lorem est amet labore</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="service-item bg-white text-center mb-2 py-5 px-4">
-						<i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
-						<h5 class="mb-2">Ticket Booking</h5>
-						<p class="m-0">Justo sit justo eos amet tempor amet clita amet
-							ipsum eos elitr. Amet lorem est amet labore</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="service-item bg-white text-center mb-2 py-5 px-4">
-						<i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-						<h5 class="mb-2">Hotel Booking</h5>
-						<p class="m-0">Justo sit justo eos amet tempor amet clita amet
-							ipsum eos elitr. Amet lorem est amet labore</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Service End -->
-
-
-
-	<!-- Registration Start -->
-	<div class="container-fluid bg-registration py-5"
-		style="margin: 90px 0;">
-		<div class="container py-5">
-			<div class="row align-items-center">
-				<div class="col-lg-7 mb-5 mb-lg-0">
-					<div class="mb-4">
-						<h6 class="text-primary text-uppercase"
-							style="letter-spacing: 5px;">Mega Offer</h6>
-						<h1 class="text-white">
-							<span class="text-primary">30% OFF</span> For Honeymoon
-						</h1>
-					</div>
-					<p class="text-white">Invidunt lorem justo sanctus clita. Erat
-						lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et
-						dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut
-						sed diam sea ipsum est dolor</p>
-					<ul class="list-inline text-white m-0">
-						<li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore
-							eos amet dolor amet diam</li>
-						<li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea
-							et sit dolor amet ipsum</li>
-						<li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam
-							dolor diam elitripsum vero.</li>
-					</ul>
-				</div>
-				<div class="col-lg-5">
-					<div class="card border-0">
-						<div class="card-header bg-primary text-center p-4">
-							<h1 class="text-white m-0">Sign Up Now</h1>
-						</div>
-						<div class="card-body rounded-bottom bg-white p-5">
-							<form>
-								<div class="form-group">
-									<input type="text" class="form-control p-4"
-										placeholder="Your name" required="required" />
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control p-4"
-										placeholder="Your email" required="required" />
-								</div>
-								<div class="form-group">
-									<select class="custom-select px-4" style="height: 47px;">
-										<option selected>Select a destination</option>
-										<option value="1">destination 1</option>
-										<option value="2">destination 1</option>
-										<option value="3">destination 1</option>
-									</select>
-								</div>
-								<div>
-									<button class="btn btn-primary btn-block py-3" type="submit">Sign
-										Up Now</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Registration End -->
-
 
 	<!-- Team Start -->
 	<div class="container-fluid py-5">
@@ -574,7 +406,7 @@ h3 {
 	</div>
 	<!-- Testimonial End -->
 
-<jsp:include page="footer-section.jsp"></jsp:include>
+	<jsp:include page="footer-section.jsp"></jsp:include>
 </body>
 
 </html>
